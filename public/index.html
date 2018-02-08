@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mongo Scraper</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Montserrat" rel="stylesheet">
+    <style>
+      body { 
+        background-color: rgb(112, 235, 167);
+        font-family: 'Montserrat', sans-serif;
+      }
+      #wrapper {
+        width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 5%;
+      }
+
+      .card-content{
+          text-align: center;
+      }
+
+      nav {
+          height: 150px;
+          margin-bottom: 40px;
+      }
+
+      #wrapper{
+          margin-top: 40px;
+      }
+
+      #nav-mobile{
+          margin-top: 40px;
+          margin-left: 30px;
+      }
+
+      #scraper{
+        margin-top: 50px;
+        margin-right: 40px;
+      }
+
+      .delete-button{
+          margin-left: 10px;
+      }
+
+      h1{
+        font-family: 'Francois One', sans-serif;
+        font-size: 80px;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="navbar-fixed">
+        <nav>
+                <div class="nav-wrapper blue">
+                  <a href="/" class="brand-logo center"><h1>MONGO SCRAPER</h1></a>
+                  <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="/">Home</a></li>                      
+                    <li><a id="saved-deals-link">Saved Deals</a></li>
+                  </ul>
+                  <a id="scraper" href="#scraped-modal" class="right btn modal-trigger">New Products</a>
+                </div>
+        </nav>
+    </div>
+    <div id="wrapper">
+            
+      <div id="products"></div>
+      <div id="notes" class="modal">
+            <div class="modal-content" id="notes-modal-content">
+            </div>
+       </div>
+       <div id="scraped-modal" class="modal">
+            <div class="modal-content" id="scraped-modal-content">
+                <h4>You scraped new deals!</h4>
+            </div>
+            <div class="modal-footer">
+                    <a href="#!" id="close-scrape" class="modal-action modal-close waves-effect waves-green btn-flat">Let me see!</a>
+            </div>
+       </div>
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="app.js"></script>
+  </body>
+</html>
