@@ -29,10 +29,12 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 
-if (process.env.MONGODB_URI){
-  mongoose.connect(process.env.MONGODB_URI);
+var dbConnect = process.env.MONGODB_URI || "mongodb://localhost/mongoScraper";
+
+if(process.env.MONGODB_URI) {
+   mongoose.connect(process.env.MONGODB_URI)
 } else {
-  mongoose.connect("mongodb://localhost/mongoScraper");
+   mongoose.connect(dbConnect);
 }
 
 // Routes
