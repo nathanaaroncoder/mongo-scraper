@@ -35,7 +35,8 @@ mongoose.connect("mongodb://localhost/mongoScraper");
 // A GET route for scraping Amazon
 app.get("/scrape", function(req, res) {
 
-  var newOnes = 0;
+
+ 
 
   request("http://www.amazon.com", function(error, response, html) {
 
@@ -72,8 +73,10 @@ app.get("/scrape", function(req, res) {
       db.Product.create(result)
         .then(function(dbProduct) {
           newOnes++;
+          console.log(newOnes);
           // View the added result in the console
           console.log(dbProduct);
+          var message = "Scrape complete! Check your database. You sent something new products to the db." 
         })
         .catch(function(err) {
           // If an error occurred, send it to the client
@@ -84,8 +87,8 @@ app.get("/scrape", function(req, res) {
       
   
 
-    
-    res.send("Scrape complete! Check your database. You sent " + newOnes + " new products to the db." );
+    console.log(message)
+    res.send(message);
     
   });
   

@@ -100,7 +100,7 @@ $(document).on("click", "#close-scrape", function() {
         // Log the response
         console.log(data);
         // Empty the notes section
-        $("#notes").empty();
+        $("#notes-modal-content").empty();
       });
   
     // Also, remove the values entered in the input and textarea for note entry
