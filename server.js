@@ -28,7 +28,12 @@ app.use(express.static("public"));
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/mongoScraper");
+
+if (process.env.MONGODB_URI){
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect("mongodb://localhost/mongoScraper");
+}
 
 // Routes
 
@@ -76,7 +81,6 @@ app.get("/scrape", function(req, res) {
           console.log(newOnes);
           // View the added result in the console
           console.log(dbProduct);
-          var message = "Scrape complete! Check your database. You sent something new products to the db." 
         })
         .catch(function(err) {
           // If an error occurred, send it to the client
@@ -85,10 +89,7 @@ app.get("/scrape", function(req, res) {
     
     });
       
-  
-
-    console.log(message)
-    res.send(message);
+    res.send("Scrape complete!");
     
   });
   
